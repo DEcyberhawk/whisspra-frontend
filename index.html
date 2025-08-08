@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Whisspra - Secure Anonymous Chat</title>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1e293b" />
+<style>
+  /* Custom scrollbar for a modern look */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  html.dark ::-webkit-scrollbar-thumb {
+    background-color: #40444B;
+    border-radius: 4px;
+    border: 2px solid #2F3136;
+  }
+  html.light ::-webkit-scrollbar-thumb {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    border: 2px solid #ffffff;
+  }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.7.1",
+    "@stripe/react-stripe-js": "https://esm.sh/@stripe/react-stripe-js@^3.9.0",
+    "@stripe/stripe-js": "https://esm.sh/@stripe/stripe-js@^7.8.0",
+    "socket.io-client": "https://esm.sh/socket.io-client@^4.8.1",
+    "react-youtube": "https://esm.sh/react-youtube@^10.1.0",
+    "react-chartjs-2": "https://esm.sh/react-chartjs-2@^5.3.0",
+    "chart.js": "https://esm.sh/chart.js@^4.5.0",
+    "qrcode.react": "https://esm.sh/qrcode.react@^4.2.0",
+    "jsqr": "https://esm.sh/jsqr@^1.4.0",
+    "vite": "https://esm.sh/vite@^7.0.6",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^4.7.0",
+    "@capacitor/cli": "https://esm.sh/@capacitor/cli@^7.4.2",
+    "@capacitor/core": "https://esm.sh/@capacitor/core@^7.4.2",
+    "@capacitor/preferences": "https://esm.sh/@capacitor/preferences@^7.0.2",
+    "@capacitor/status-bar": "https://esm.sh/@capacitor/status-bar@^7.0.2"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-white dark:bg-[#36393f] transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

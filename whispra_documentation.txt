@@ -1,0 +1,141 @@
+
+===================================
+Whisspra: System Documentation
+===================================
+
+1. Project Overview
+-------------------
+
+Whisspra is a secure, next-generation communication platform designed from the ground up with a focus on user privacy, anonymity, and empowerment. It merges the security of a private messenger with the features of a social platform, offering tools for creators, students, and privacy-conscious individuals.
+
+- Objective: To provide a comprehensive, secure, and feature-rich chat experience that supports anonymous messaging, whistleblower protection, creator monetization, and advanced academic collaboration tools.
+- Founder: Max Collins Botchway
+- Core Technologies: The MERN+S stack (MongoDB, Express, React, Node.js + Socket.IO), integrated with Google's Gemini AI for intelligent features.
+
+2. System Architecture
+----------------------
+
+Whisspra is built on a modern client-server architecture, ensuring scalability and maintainability.
+
+### 2.1. Frontend (Client)
+
+- Framework: React (v19) with Vite
+- Language: TypeScript
+- Routing: React Router DOM (v6)
+- Styling: Tailwind CSS
+- State Management: React Context API
+- Real-time Communication: socket.io-client
+- Offline Support: Progressive Web App (PWA) via Service Worker
+- Native Wrapper: Capacitor for iOS and Android deployment.
+
+### 2.2. Backend (Server)
+
+- Framework: Node.js with Express.js
+- Language: JavaScript (Node.js)
+- Database: MongoDB with Mongoose ODM
+- Real-time Communication: Socket.IO
+- Authentication: JWT, bcryptjs, speakeasy & qrcode for 2FA
+- AI Integration: @google/genai SDK
+- Payments: Stripe API
+
+3. Database Schema
+------------------
+
+The data is structured across several MongoDB collections:
+
+- `users`: Stores user profiles, credentials, roles, subscription tiers, and security settings. Includes currency and storefront settings for creators.
+- `conversations`: Defines individual and group chats, participants, and metadata.
+- `messages`: Contains all chat messages with sender, content, type, and read status.
+- `communities`: Stores details for groups in the EDU Lounge.
+- `transactions`: Logs all financial activities (tips, purchases).
+- `marketplaceItems`: Holds listings for the creator marketplace.
+- `settings`: A singleton collection for global application branding.
+- `featureFlags`: Manages on/off state for platform features.
+- `cognitiveBlueprints`: Stores AI-generated feature definitions for the Forge.
+- `apiKeys`: Stores hashed API keys for developer access.
+- EDU Models (`studyTasks`, `flashcardDecks`, etc.): Store data for academic tools.
+- `activityLogs`: Records important system and user actions for auditing.
+- `liveStreams`, `echoes`, `dreamscapes`, etc: Models for all advanced "super features".
+
+
+4. Features Documentation
+-------------------------
+(This section contains the full feature list from previous updates and is omitted here for brevity.)
+
+5. API Endpoints & Real-Time Events
+-----------------------------------
+(This section remains comprehensive and is omitted here for brevity.)
+
+6. Setup and Deployment Guide
+-----------------------------
+
+### 6.1. Prerequisites
+
+- Node.js (v18.x or later)
+- npm (v8 or later)
+- MongoDB (local instance or Atlas URI)
+- Stripe Account & API Keys
+- Google AI API Key
+- (For Mobile) Android Studio & Xcode
+
+### 6.2. Backend Setup (`whisspra-backend/`)
+
+1.  Navigate to the `whisspra-backend` directory: `cd whisspra-backend`
+2.  Install dependencies: `npm install`
+3.  Create an environment file: `cp .env.example .env`
+4.  Configure variables in `.env` (MONGO_URI, JWT_SECRET, STRIPE_SECRET_KEY, API_KEY).
+5.  Run the server: `npm run dev`
+    - The backend will run on `http://localhost:5000` and will be accessible from other devices on your local network (e.g., your mobile phone for testing).
+
+### 6.3. Frontend Setup (Root Directory)
+
+1.  Navigate to the root directory (where `package.json` for the frontend is located).
+2.  Install dependencies: `npm install`
+3.  **Create an environment file:** Create a new file named `.env` in the root directory.
+4.  **Configure `.env` for Web Development:**
+    -   For standard web testing, you can leave the `.env` file empty or add the following line:
+        ```
+        VITE_API_URL=http://localhost:5000/api
+        VITE_SOCKET_URL=http://localhost:5000
+        ```
+5.  Run the development server: `npm run dev`
+    - The frontend will be available at `http://localhost:5173` or a similar port.
+
+### 6.4. Mobile Development & Fixing "Failed to Fetch"
+
+**This is the crucial step to test the native mobile app.**
+
+0.  **Ensure Backend is Accessible:** Make sure your backend server is running (`npm run dev` in `whisspra-backend`). It is configured to be accessible from your local network. Your computer and mobile device must be on the **same Wi-Fi network**.
+1.  **Find Your Computer's Local IP Address:**
+    -   **Mac:** In your terminal, run `ifconfig | grep "inet " | grep -v 127.0.0.1`. Look for an address like 192.168.x.x.
+    -   **Windows:** In Command Prompt, run `ipconfig`. Look for the "IPv4 Address" under your active Wi-Fi or Ethernet adapter.
+2.  **Update Frontend `.env` File:**
+    -   Open the `.env` file in the root of the frontend project.
+    -   Set `VITE_API_URL` and `VITE_SOCKET_URL` to your computer's IP address, including the port.
+        ```
+        # Example using IP address 192.168.1.10
+        VITE_API_URL=http://192.168.1.10:5000/api
+        VITE_SOCKET_URL=http://192.168.1.10:5000
+        ```
+3.  **Build and Sync for Capacitor:**
+    -   Stop the dev server.
+    -   Run `npm run build` (This bundles your web app into the `/dist` folder).
+    -   Run `npx cap sync` (This copies your web build into the native Android and iOS projects).
+4.  **Run on Device/Emulator:**
+    -   **Android:** `npx cap open android` (This opens the project in Android Studio. Click the "Run" button.) The Capacitor configuration has been set to allow `http` traffic for local development.
+    -   **iOS:** `npx cap open ios` (This opens the project in Xcode. Select your device and click the "Run" button.)
+
+7. User Interface & Navigation
+-------------------------------
+(This section remains comprehensive but is omitted here for brevity.)
+
+8. The Whisspra Forge & Native Updates
+-----------------------------------------------
+The **Whisspra Forge** allows the admin to generate "Cognitive Blueprints" and backend code scaffolds for new features using natural language. **Capacitor** is the delivery mechanism for these features to native mobile users.
+
+**Workflow for a Forge-Created Update:**
+1.  **Create Feature:** Use the Forge to generate a new feature (e.g., "Polls"). The backend API is activated instantly.
+2.  **Package Frontend:** Run `npm run build` to bundle the web app, which can now dynamically render the new "Polls" feature.
+3.  **Sync Native Projects:** Run `npx cap sync`. Capacitor copies the updated web build into the native projects.
+4.  **Submit to Stores:** Run `npx cap open ios` or `android`. In Xcode/Android Studio, increment the app version and submit the new build for review.
+This workflow dramatically accelerates the development-to-deployment cycle for mobile app updates.
