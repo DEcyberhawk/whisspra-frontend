@@ -1,13 +1,13 @@
 import React from 'react';
 import DashboardLayout from '../components/admin/DashboardLayout';
-import WhisspraLogo from '../components/WhisspraLogo'; // ✅ Correct path + spelling
+import WhisspraLogo from '../components/WhisspraLogo'; // <-- exact name + path
 
 const AdminDashboardPage: React.FC = () => {
   return (
     <DashboardLayout>
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-3xl font-bold text-slate-800 dark:text-white">Admin Dashboard</h1>
-        <WhisspraLogo className="h-10 w-auto" showText={true} /> {/* ✅ Compact & proper size */}
+        <WhisspraLogo className="h-10 w-auto" showText />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
