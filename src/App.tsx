@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import ForgePage from './pages/admin/ForgePage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
@@ -73,6 +74,7 @@ const AppContent: React.FC = () => {
         <Route path="chat" element={<ChatPage />} />
         <Route path="echoes" element={<EchoesLobbyPage />} />
         <Route path="live" element={<LiveStageLobbyPage />} />
+        <Route path="/admin/forge" element={<AdminRoute><ForgePage /></AdminRoute>} />
         <Route path="dreamscapes" element={<DreamscapeLobbyPage />} />
         <Route path="market" element={<MarketplaceLobby />} />
         <Route path="edu" element={<CommunityLoungePage onJoinCommunity={() => {}}/>} />
