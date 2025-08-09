@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import WhispraLogo from './WhispraLogo';
+import WhisspraLogo from './WhisspraLogo';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +32,7 @@ const Header: React.FC = () => {
   return (
     <header className="py-4 px-4 sm:px-6 lg:px-8 border-b border-slate-700/50 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
-        <WhispraLogo />
+        <WhisspraLogo />
         <nav className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => {
             if (link.type === 'anchor' && isLandingPage) {

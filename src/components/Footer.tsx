@@ -1,6 +1,6 @@
 
 import React from 'react';
-import WhispraLogo from './WhispraLogo';
+import WhisspraLogo from './WhisspraLogo';
 import { useSettings } from '../context/SettingsContext';
 import { Link } from 'react-router-dom';
 

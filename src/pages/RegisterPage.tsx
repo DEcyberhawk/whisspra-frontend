@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import WhispraLogo from '../components/WhispraLogo';
+import WhisspraLogo from '../components/WhisspraLogo';
 
 const RegisterPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -46,7 +46,7 @@ const RegisterPage: React.FC = () => {
       <div className="absolute top-0 left-0 w-full h-full bg-grid-slate-700/[0.1]"></div>
       <div className="relative z-10 w-full max-w-md">
         <div className="text-center mb-8">
-          <WhispraLogo className="max-h-10 w-auto mx-auto" /> {/* keeps logo small */}
+          <WhisspraLogo className="max-h-10 w-auto mx-auto" /> {/* keeps logo small */}
         </div>
         <div className="bg-slate-800/50 border border-slate-700/50 rounded-2xl shadow-2xl p-8 backdrop-blur-sm">
           <h2 className="text-3xl font-bold text-white text-center mb-2">Create Account</h2>

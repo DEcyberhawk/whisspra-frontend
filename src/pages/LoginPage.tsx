@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import WhispraLogo from '../components/WhispraLogo';
+import WhisspraLogo from '../components/WhisspraLogo';
 import TwoFactorPrompt from '../components/auth/TwoFactorPrompt';
 import { useNotification } from '../context/NotificationContext';
 
