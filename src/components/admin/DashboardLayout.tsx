@@ -18,13 +18,12 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({ children }) 
   const location = useLocation();
   const navigate = useNavigate();
   const { logout } = useAuth();
-
+  
   return (
     <div className="flex h-screen bg-slate-100 dark:bg-slate-900 font-sans text-slate-800 dark:text-slate-200">
       {/* Sidebar */}
       <aside className="w-64 flex-shrink-0 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col">
         <div className="h-16 flex items-center justify-center px-4 border-b border-slate-200 dark:border-slate-700">
-          {/* Compact logo (image only) */}
           <WhisspraLogo className="h-8 w-auto" showText={false} />
         </div>
         <nav className="flex-1 px-4 py-4 space-y-2">
