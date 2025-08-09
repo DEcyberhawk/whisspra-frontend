@@ -14,7 +14,7 @@ const WhisspraLogo: React.FC<Props> = ({ className = "h-8 w-auto", showText = tr
     return <div className="w-8 h-8 bg-slate-700 rounded-full animate-pulse" />;
   }
 
-  const src = settings?.logoUrl || "/whispra-logo.svg"; // fallback to a public asset if no custom logo
+  const src = settings?.logoUrl || "/whisspra-logo.svg"; // fallback to a public asset if no custom logo
 
   return (
     <Link to="/" className="flex items-center space-x-2 group" aria-label="Whisspra Home">
