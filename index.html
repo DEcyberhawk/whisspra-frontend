@@ -2,14 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" /> <!-- put real favicon in public/ -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Whisspra - Secure Anonymous Chat</title>
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whisspra</title>
+    <!-- Link to Manifest -->
+    <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#1e293b" />
+    <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+    <link rel="icon" href="/icon-512.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
   </head>
-  <body class="bg-white dark:bg-[#36393f] transition-colors duration-300">
+  <body>
     <div id="root"></div>
-    <script type="module" src="/src/index.tsx"></script>
+
+    <script src="bundle.js"></script>
   </body>
 </html>

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import ForgePage from './pages/admin/ForgePage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
@@ -33,11 +32,11 @@ import WalletPage from './pages/WalletPage';
 import DreamscapeLobbyPage from './pages/DreamscapeLobbyPage';
 import DreamscapeViewerPage from './pages/DreamscapeViewerPage';
 import FeaturesPage from './pages/admin/FeaturesPage';
-import ForgePage from './pages/admin/ForgePage';
 import UpgradePage from './pages/UpgradePage';
 import CommunityLoungePage from './pages/CommunityLoungePage';
 import MarketplaceLobby from './components/marketplace/MarketplaceLobby';
 import NotFoundPage from './pages/NotFoundPage';
+import ForgePage from './pages/admin/ForgePage';  // Import only once
 
 const NativeSetup: React.FC = () => {
   const { theme } = useTheme();
