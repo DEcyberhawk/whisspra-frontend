@@ -19,25 +19,24 @@ export type UseServerlessRTC = {
   stop: () => void;
 };
 
-export default function useServerlessRTC(): UseServerlessRTC {
+// Implement the hook
+function useServerlessRTCImpl(): UseServerlessRTC {
   const [connecting, setConnecting] = useState(false);
   const [connected, setConnected] = useState(false);
   const [peers, setPeers] = useState<PeerInfo[]>([]);
   const [error, setError] = useState<string | null>(null);
   const roomRef = useRef<string | undefined>(undefined);
 
-  const isSupported = useMemo(() => typeof window !== "undefined" && !!window.RTCPeerConnection, []);
+  const isSupported = useMemo(() => typeof window !== "undefined" && !!(window as any).RTCPeerConnection, []);
 
   const start = useCallback(async (opts?: { roomId?: string }) => {
     setError(null);
     setConnecting(true);
     try {
-      // This is a stub. Put your signaling-less / mesh bootstrap here later.
       roomRef.current = opts?.roomId;
-      // Simulate an established session after a short delay.
-      await new Promise((r) => setTimeout(r, 400));
+      await new Promise((r) => setTimeout(r, 400)); // simulate connect
       setConnected(true);
-      setPeers([]); // Populate with discovered peers when implemented.
+      setPeers([]); // populate when implemented
     } catch (e: any) {
       setError(e?.message ?? "Failed to start RTC session.");
       setConnected(false);
@@ -54,3 +53,7 @@ export default function useServerlessRTC(): UseServerlessRTC {
 
   return { isSupported, connecting, connected, peers, error, start, stop };
 }
+
+// Export as BOTH named and default to satisfy any import style.
+export const useServerlessRTC = useServerlessRTCImpl;
+export default useServerlessRTCImpl;
