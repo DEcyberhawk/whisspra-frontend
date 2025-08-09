@@ -6,7 +6,7 @@ import { NotificationProvider } from './context/NotificationContext';
 import { OfflineProvider } from './context/OfflineContext';
 import { SocketProvider } from './context/SocketContext';
 import { SettingsProvider } from './context/SettingsContext';
-import LandingPage from './pages/LandingPage';
+import LandingPage from './pages/LandingPage.tsx';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProtectedRoute from './components/ProtectedRoute';
