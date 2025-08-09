@@ -2,25 +2,31 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-if ('serviceWorker' in navigator) {
+// ✅ Load Tailwind & global styles (src/index.css must contain @tailwind directives)
+import './index.css';
+
+// ✅ Only register SW in production, over HTTPS, and use a JS file in /public
+if (
+  import.meta.env.PROD &&
+  'serviceWorker' in navigator &&
+  window.location.protocol === 'https:'
+) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.ts')
-      .then(registration => {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    navigator.serviceWorker
+      .register('/service-worker.js', { scope: '/' })
+      .then((registration) => {
+        console.log('SW registered:', registration.scope);
       })
-      .catch(error => {
-        console.log('ServiceWorker registration failed: ', error);
+      .catch((error) => {
+        console.warn('SW registration failed:', error);
       });
   });
 }
 
 const rootElement = document.getElementById('root');
-if (!rootElement) {
-  throw new Error("Could not find root element to mount to");
-}
+if (!rootElement) throw new Error('Could not find root element to mount to');
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
