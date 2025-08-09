@@ -1,6 +1,6 @@
 import React from 'react';
 import DashboardLayout from '../components/admin/DashboardLayout';
-import WhisspraLogo from '../components/WhisspraLogo'; // <-- exact name + path
+import WhisspraLogo from '../components/WhisspraLogo'; // <-- correct path + double “s”
 
 const AdminDashboardPage: React.FC = () => {
   return (
